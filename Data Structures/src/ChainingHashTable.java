@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ChainingHashTable<K,V> extends HashTable<K,V> {
     private class LinkedListNode {
         Node value;
@@ -8,14 +10,14 @@ public class ChainingHashTable<K,V> extends HashTable<K,V> {
         }
     }
 
-    private LinkedListNode[] buckets;
+    private ArrayList<LinkedListNode> buckets;
     private int LENGTH;
 
     public ChainingHashTable() {
-        buckets = new LinkedListNode[LENGTH];
+        buckets = new ArrayList<>(LENGTH);
 
         for (int i = 0; i < LENGTH; i++) {
-            buckets[i] = new LinkedListNode(null);
+            buckets.set(i, new LinkedListNode(null));
         }
     }
 
