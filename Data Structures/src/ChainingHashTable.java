@@ -1,12 +1,16 @@
 import java.util.ArrayList;
 
 public class ChainingHashTable<K,V> extends HashTable<K,V> {
-    private class LinkedListNode {
+    private static class LinkedListNode {
         Node value;
         LinkedListNode next;
 
         public LinkedListNode(Node value) {
             this.value = value;
+        }
+
+        public static void MoveToFront(Node value) {
+
         }
     }
 
@@ -23,6 +27,16 @@ public class ChainingHashTable<K,V> extends HashTable<K,V> {
 
     @Override
     public V search(K key) {
+        int index = key.hashCode();
+        LinkedListNode node = this.buckets.get(index);
+        LinkedListNode curNode = node;
+
+        while (curNode != null) {
+            if (curNode.value.key == key) {
+                return curNode.value.value;
+            }
+            curNode = curNode.next;
+        }
         return null;
     }
 
