@@ -18,5 +18,14 @@ public class Main{
         System.out.println(Arrays.toString(array));
         BubbleSort.sort(array);
         System.out.println(Arrays.toString(array));
+
+        array = Helper.randomArray();
+        System.out.println(Arrays.toString(array));
+        HeapSort.sort(array);
+        System.out.println(Arrays.toString(array));
+
+        array = Helper.randomArray();
+        QuickSort.sort(array);
+        Helper.isSorted(array, "QuickSort");
     }
 }
